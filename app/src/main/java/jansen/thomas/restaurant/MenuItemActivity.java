@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 // Show the menuItem. Get the item through intent and set all textViews
+// Uses Picasso to load the URL into the imageView
 public class MenuItemActivity extends AppCompatActivity {
 
     @Override
