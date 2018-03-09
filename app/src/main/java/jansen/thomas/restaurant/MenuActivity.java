@@ -14,6 +14,7 @@ public class MenuActivity extends AppCompatActivity implements MenuRequest.Callb
 
     ListView listViewMenu;
 
+    // Get category name from intent and send a JSONrequest to get the ietms with that category
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,17 +28,20 @@ public class MenuActivity extends AppCompatActivity implements MenuRequest.Callb
         listViewMenu.setOnItemClickListener(new ListItemClickListener());
     }
 
+    // When menuItemArrayList has returned, make new adapater and set adapter on listView
     @Override
     public void gotMenu(ArrayList<MenuItem> menuItemArrayList) {
         MenuItemAdapter adapter = new MenuItemAdapter(this, R.layout.menu_item, menuItemArrayList);
         listViewMenu.setAdapter(adapter);
     }
 
+    // Show message when received an error message
     @Override
     public void gotMenuError(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
+    // onClickListener for menuItems. Show item details when an item gets clicked
     public class ListItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

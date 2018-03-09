@@ -21,6 +21,7 @@ public class MenuRequest implements Response.Listener<JSONObject>, Response.Erro
         void gotMenuError(String message);
     }
 
+    // Variables needed later
     private Context context2;
     private Callback activity2;
     private String categorysearch;
@@ -29,12 +30,14 @@ public class MenuRequest implements Response.Listener<JSONObject>, Response.Erro
         context2 = context;
     }
 
+//  When received an error message, send error message to gotMenuError
     @Override
     public void onErrorResponse(VolleyError error) {
         String errorMessage = error.getMessage();
         activity2.gotMenuError(errorMessage);
     }
 
+//  When received a response extract the values from it and make MenuItems, filtering on category
     @Override
     public void onResponse(JSONObject response) {
         JSONArray menuArray = null;
@@ -68,6 +71,7 @@ public class MenuRequest implements Response.Listener<JSONObject>, Response.Erro
         activity2.gotMenu(menuItemArrayList);
     }
 
+//  Send a JSONrequest to find the menuItems
     public void getMenu(Callback activity, String category) {
 
         activity2 = activity;

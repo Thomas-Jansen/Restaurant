@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+// An adapter to show the different menuItems
 public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
 
     ArrayList<MenuItem> menuItemArrayList;
@@ -31,6 +32,8 @@ public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.menu_item, parent, false);
         }
+
+//      Get the menuItem and fill the listView
         MenuItem item = menuItemArrayList.get(position);
 
         String name = item.getName();

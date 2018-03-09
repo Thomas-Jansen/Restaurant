@@ -2,6 +2,7 @@ package jansen.thomas.restaurant;
 
 import java.io.Serializable;
 
+// Creates a MenuItem object
 public class MenuItem implements Serializable{
 
     private String name;
